@@ -5,6 +5,6 @@ public class Game {
 	}
 	
 	public int ­p¤À(){
-		return -1;
+		return 0;
 	}
 }
