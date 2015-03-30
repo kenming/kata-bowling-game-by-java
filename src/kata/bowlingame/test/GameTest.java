@@ -14,13 +14,31 @@ public class GameTest {
 
 	@Test
 	// 測試玩家投球共20次全洗溝 (gutter)時的總得分數
+	// 期望結果值：0
 	public void testGutterGame() throws Exception {
 		int expected = 0;	// 期望結果值
 		int actual;			// 實際結果值
 		
-		for (int i=0;i<20;i++){
-			g.投球(0);
-		}
+		this.rollMany(20, 0);
+		actual = g.計分();
+		
+		// 斷言比對
+		assertEquals(expected, actual);
+	}
+	
+	private void rollMany(int n, int pins) {
+		for (int i = 0; i < n; i++)
+			g.投球(pins);
+	}	
+	
+	@Test
+	// 測試玩家投球共20次，每次都只得一分時的總得分數
+	// 期望結果值：20	
+	public void testAllOnes() throws Exception {
+		int expected = 20;
+		int actual;	
+		
+		this.rollMany(20, 1);
 		actual = g.計分();
 		
 		// 斷言比對
