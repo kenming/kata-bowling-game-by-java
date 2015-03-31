@@ -39,11 +39,6 @@ public class GameTest {
 		// 斷言比對
 		assertEquals(expected, actual);
 	}
-	
-	private void rollMany(int n, int pins) {
-		for (int i = 0; i < n; i++)
-			g.投球(pins);
-	}
 		
 	@Test
 	// 測試玩家整局只有一次補中+次一計分格投球的分數
@@ -63,5 +58,30 @@ public class GameTest {
 	private void rollSPare() {
 		g.投球(5);
 		g.投球(5);
+	}
+	
+	@Test
+	// 測試玩家整局只有一次全中+次一計分格兩次投球的分數
+	// 共 19 次投球機會，其餘 16 次皆0分
+	public void testOneStrike() throws Exception {
+		int expected = 24;
+		int actual;		
+		
+		this.rollStrike();
+		g.投球(3);
+		g.投球(4);
+		rollMany(16, 0);
+		actual = g.計分();
+		
+		assertEquals(expected, actual);
+	}
+	
+	private void rollStrike() {
+	    g.投球(10); 
+	}
+	
+	private void rollMany(int n, int pins) {
+		for (int i = 0; i < n; i++)
+			g.投球(pins);
 	}	
 }
