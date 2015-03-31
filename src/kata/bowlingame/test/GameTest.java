@@ -80,6 +80,18 @@ public class GameTest {
 	    g.投球(10); 
 	}
 	
+	@Test
+	// 測試玩家在所有全倒的12次投球的總得分數 (滿分300分)
+	public void testPerfectGame() throws Exception {
+		int expected = 300;
+		int actual;
+		
+		rollMany(12,10);
+		actual = g.計分();
+		
+		assertEquals(expected, actual);
+	}	
+	
 	private void rollMany(int n, int pins) {
 		for (int i = 0; i < n; i++)
 			g.投球(pins);
