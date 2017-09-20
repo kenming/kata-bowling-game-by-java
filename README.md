@@ -17,7 +17,7 @@ o 所有標籤列表的查詢：
 $ git tag -l
 
 --------------------------------------------------------------------------------
-Kenming Wang
-o FB 社團：軟體設計鮮思維
-　https://www.facebook.com/groups/softthinking/
+Kenming Wang  
+o FB 社團：軟體設計鮮思維  
+　https://www.facebook.com/groups/softthinking/  
 o blog : http://www.kenming.idv.tw/
